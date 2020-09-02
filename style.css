@@ -1,0 +1,92 @@
+body{
+    background: #780206;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #061161, #780206);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #061161, #780206); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: Bahnschrift;
+}
+div .waste{
+    visibility: hidden;
+}
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    height: 430px;
+    width: 500px;
+}
+.square{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: honeydew;
+    margin: 0.5px;
+}
+.split1{
+    height: 100%;
+    width: 70%;
+    position: fixed;
+    padding-top: 50px;
+}
+.split2{
+    height: 100%;
+    width: 30%;
+    position: fixed;
+    padding-top: 60px;
+}
+.right{
+    right: 0;
+    background: #159957;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #155799, #159957);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #155799, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#navbarDropdown:hover,#navbarDropdown1:hover{
+    color: #2980b9;
+}
+.dropdown-toggle::after{
+    content: none;
+}
+.centered{
+    padding: 5% 15%;
+    text-align: center;
+}
+input:focus {
+    border: 2px solid #2980b9;
+    outline: none;
+}
+.dropdown-item:hover{
+    background-color: #2980b9;
+    color: white;
+}
+h1{
+    font-size: 60px;
+}
+.show_name{
+    margin-top: 100px;
+    color: aquamarine;
+}
+.player-one{
+    animation-name: disc-one;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.player-two{
+    animation-name: disc-two;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes disc-one {
+    100% {background-color: red;}
+}
+@keyframes disc-two {
+    100% {background-color: blue;}
+}
+.swal-modal{
+    background: #5614B0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DBD65C, #5614B0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DBD65C, #5614B0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.swal-text{
+    font-size: 20px;
+    text-align: center;
+    word-spacing: 0.4rem;
+    color: white;
+}
