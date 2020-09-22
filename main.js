@@ -9,13 +9,14 @@ document.addEventListener('DOMContentLoaded',()=> {
     const resetBtn=document.querySelector('.reset-game');
     const firstPlayer=document.getElementById('first-player')
     const secondPlayer=document.getElementById('second-player')
-    var playerFirst,playerSecond,currentPlayer;
+    var playerFirst,playerSecond,currentPlayer,isSet=0;
 
     setBtn.addEventListener('click',function(){
         playerFirst=firstPlayer.value;
         playerSecond=secondPlayer.value;
         currentPlayer = playerFirst;
         displayCurrentPlayer.innerHTML = currentPlayer+" turn";
+        isSet=1;
     });
 
     function reset(){
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded',()=> {
         }
         displayCurrentPlayer.innerHTML = "Player One turn";
         result.innerHTML = firstPlayer.value = secondPlayer.value = "";
+        isSet=0;
     }
 
     newBtn.addEventListener('click',reset);
@@ -60,13 +62,13 @@ document.addEventListener('DOMContentLoaded',()=> {
 
     for (var i = 0, len = squares.length; i < len; i++)
         (function (index) {
-                squares[i].onclick = function () {
+                squares[i].onclick = function() {
                     if (squares[index + 7].classList.contains('taken') && !squares[index].classList.contains('player-one')
                         && !squares[index].classList.contains('player-two')) {
-                        again: ;
-                        if(firstPlayer.value=="" || secondPlayer.value==""){
+                        setname: ;
+                            if(isSet === 0){
                             swal("Error","Player's names are not set!!","error");
-                            goto: again;
+                            goto: setname;
                         }
                         if (currentPlayer === playerFirst) {
                             squares[index].classList.add('taken','player-one');
@@ -78,7 +80,11 @@ document.addEventListener('DOMContentLoaded',()=> {
                             displayCurrentPlayer.innerHTML = currentPlayer+" turn";
                         }
                     } else {
-                        swal("Error","You can't go there!","error");
+                        if(isSet === 0){
+                            swal("Error","Player's names are not set!!","error");
+                        } else{
+                            swal("Error","You can't go there!","error");
+                        }
                     }
                 }
             })(i);
@@ -109,7 +115,7 @@ document.addEventListener('DOMContentLoaded',()=> {
                 result.innerHTML=playerFirst+" Wins!";
                 displayCurrentPlayer.innerHTML = "";
                 swal({
-                    text: "Congratulations, "+ playerFirst+"! You won the game.",
+                    text: "Congratulations, "+ playerFirst+"! You have won the game.",
                     value: reset()
                 });
             }
@@ -118,7 +124,7 @@ document.addEventListener('DOMContentLoaded',()=> {
                 result.innerHTML=playerSecond+" Wins!";
                 displayCurrentPlayer.innerHTML="";
                 swal({
-                    text: "Congratulations, "+ playerSecond+"! You won the game.",
+                    text: "Congratulations, "+ playerSecond+"! You have won the game.",
                     value: reset()
                 });
             }
@@ -126,5 +132,4 @@ document.addEventListener('DOMContentLoaded',()=> {
     }
 
     squares.forEach(square=>square.addEventListener('click',checkBoard));
-
 })
